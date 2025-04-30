@@ -2,6 +2,11 @@
 # https://clangd.llvm.org/guides/include-cleaner
 # https://clang.llvm.org/extra/clang-tidy/checks/list.html
 
+If:
+  PathMatch: [
+    .*\.(c|h)$,
+    .*\.(c|h)pp
+  ]
 Index:
   Background: Skip
 CompileFlags:
@@ -16,21 +21,21 @@ InlayHints:
   Designators: No # `designators in aggregate initialization`
   ParameterNames: No # `parameter names in function calls`
   DeducedTypes: No # `deduced types`
-  DefaultArguments: Yes # `default arguments`
+  DefaultArguments: No # `default arguments`
   TypeNameLimit: 24 # character limit for type hints
 Completion:
   AllScopes: Yes
   ArgumentLists: FullPlaceholders
-  HeaderInsertion: IWYU
+  # HeaderInsertion: IWYU # IWYU(default), None
 Diagnostics:
   ClangTidy:
     Add:
-      - cppcoreguidelines*
-      - modernize*
-      - performance*
-      - misc*
-      - readability*
-      - bugprone*,
+      - cppcoreguidelines-*
+      - modernize-*
+      - performance-*
+      - misc-*
+      - readability-*
+      - bugprone-*
     Remove: 
       - cppcoreguidelines-avoid-magic-numbers # (alias)
       - readability-magic-numbers
@@ -46,3 +51,22 @@ Diagnostics:
     FastCheckFilter: Strict # Strict(default), Loose, None
   UnusedIncludes: Strict # Strict(default), None
   MissingIncludes: None # Strict(default), None
+
+--- 
+
+If:
+  PathMatch: .*\.cu
+CompileFlags:
+  Add: [
+    --no-cuda-version-check,
+    -Wno-unknown-cuda-version,
+  ]
+  Remove: [
+     -forward-unknown-to-host-compiler,
+     -expt-*, --expt-*,
+     -gencode*, --generate-code*,
+     -Xfatbin*,
+     -arch=*,
+     -rdc=*,
+     -mno-*
+  ]
