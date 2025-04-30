@@ -1,1 +1,3 @@
 .markdownlint.yaml
+build/
+bin/
