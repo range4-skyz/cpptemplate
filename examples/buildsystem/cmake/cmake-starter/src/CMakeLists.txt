@@ -15,8 +15,14 @@ execute_process(
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/ConfigVersion.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/ConfigVersion.h
+    ${CMAKE_BINARY_DIR}/include/ConfigVersion.h
     @ONLY
 )
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(
+    cmake-starter
+    PUBLIC
+    ${CMAKE_BINARY_DIR}/include
+)
+
+install(TARGETS cmake-starter RUNTIME DESTINATION bin)

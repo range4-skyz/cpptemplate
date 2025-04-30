@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-cmake -S . -B build -G Ninja
-cmake --build build
+cmake -S . -B build --install-prefix "$PWD" -GNinja
+cmake --build build --parallel
+cmake --install build/
 
-./build/src/cmake-starter
+./bin/cmake-starter
