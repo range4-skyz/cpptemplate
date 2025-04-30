@@ -4,7 +4,7 @@
 
 #WarningsAsErrors: '*'
 HeaderFilterRegex: '.*\.hpp'
-FormatStyle: file
+FormatStyle: none
 Checks: >
   cppcoreguidelines-*,
   modernize-*,
