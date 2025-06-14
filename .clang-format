@@ -2,26 +2,26 @@
 # [clang-format-configurator](https://clang-format-configurator.site/): for generating a clang-format configuration file.
 
 ---
-# Language: Cpp # If you uncomment this, it will only apply to Cpp
-BasedOnStyle: LLVM # LLVM, Google, Chromium, Mozilla, Webkit, Microsoft, GNU
+Language: Cpp # If you uncomment this, it will only apply to Cpp
+# BasedOnStyle: LLVM # LLVM, Google, Chromium, Mozilla, Webkit, Microsoft, GNU
 Standard: Auto # c++03, c++11, c++14, c++17, c++20, Lastest, Auto
 Cpp11BracedListStyle: true
 
 DisableFormat: false
-ColumnLimit: 120
-ReflowComments: true
-AccessModifierOffset: -4
+TabWidth: 4
 LineEnding: LF
 UseTab: Never
-TabWidth: 4
+AccessModifierOffset: -4
+ColumnLimit: 120
+ReflowComments: true
 MaxEmptyLinesToKeep: 1
 MainIncludeChar: Quote
 ShortNamespaceLines: 1
 SeparateDefinitionBlocks: Always
 RequiresClausePosition: OwnLine
-RemoveSemicolon: false # (!warning)
+# RemoveSemicolon: false  # (!warning)
 RemoveParentheses: Leave
-RemoveBracesLLVM: false # (!warning)
+# RemoveBracesLLVM: false # (!warning)
 InsertNewlineAtEOF: true
 InsertTrailingCommas: Wrapped
 InsertBraces: true
@@ -30,7 +30,7 @@ EmptyLineBeforeAccessModifier: LogicalBlock
 EmptyLineAfterAccessModifier: Never
 KeepEmptyLines: 
   AtEndOfFile: false
-  AtStartOfBlock: false
+  AtStartOfBlock: true
   AtStartOfFile: false
 BinPackParameters: false
 BinPackArguments: false
@@ -103,7 +103,6 @@ ConstructorInitializerIndentWidth: 4
 
 IndentExternBlock: Indent
 IndentCaseBlocks: false
-
 IndentCaseLabels: true
 IndentGotoLabels: true
 
@@ -113,14 +112,14 @@ IndentRequiresClause: true
 RequiresExpressionIndentation: OuterScope # Keyword, OuterScope
 
 LambdaBodyIndentation: Signature # Signature, OuterScope
-NamespaceIndentation: All # None, Inner, All
+NamespaceIndentation: Inner # None, Inner, All
 
 IndentWrappedFunctionNames: false
 BracedInitializerIndentWidth: 2
 
 # [Allow]
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowAllArgumentsOnNextLine: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
@@ -161,8 +160,8 @@ SpaceInEmptyBlock: false
 # SpacesInParentheses: false # (!deprecated)
 
 # [Break]
-BreakTemplateDeclarations: Yes
 AlwaysBreakBeforeMultilineStrings: false
+BreakTemplateDeclarations: Yes
 BreakBeforeConceptDeclarations: Always
 BreakBeforeBinaryOperators: All
 BreakBeforeTernaryOperators: true
@@ -197,9 +196,9 @@ BraceWrapping:
   BeforeLambdaBody: false
   BeforeWhile: false
   IndentBraces: false
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-  SplitEmptyNamespace: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
 
 IntegerLiteralSeparator:
   Binary: 4
