@@ -17,11 +17,11 @@ CompileFlags:
   Remove: []
 InlayHints:
   Enabled: No             # enables/disables the inlay-hints feature for all kinds
-  # BlockEnd: Yes           # `block end comment`
-  # Designators: Yes        # `designators in aggregate initialization`
-  # ParameterNames: Yes     # `parameter names in function calls`
-  # DeducedTypes: Yes       # `deduced types`
-  # DefaultArguments: Yes   # `default arguments`
+  # BlockEnd: Yes           # block end comment
+  # Designators: Yes        # designators in aggregate initialization
+  # ParameterNames: Yes     # parameter names in function calls
+  # DeducedTypes: Yes       # deduced types
+  # DefaultArguments: Yes   # default arguments
   # TypeNameLimit: 24       # character limit for type hints
 Completion:
   AllScopes: Yes
@@ -36,12 +36,12 @@ Diagnostics:
     #   - misc-*
     #   - readability-*
     #   - bugprone-*
-    Remove: 
+    Remove:
       - cppcoreguidelines-avoid-magic-numbers # (alias)
       - readability-magic-numbers
       - readability-identifier-naming
       - readability-identifier-length
-      - modernize-use-trailing-return-type
+      # - modernize-use-trailing-return-type
       - misc-use-internal-linkage 
     # CheckOptions:
     #   readability-identifier-naming.ClassCase: CamelCase

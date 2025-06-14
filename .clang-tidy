@@ -4,13 +4,14 @@
 
 #WarningsAsErrors: '*'
 HeaderFilterRegex: '.*\.hpp'
-FormatStyle: none
+FormatStyle: file   # use .clang-format
 Checks: >
   cppcoreguidelines-*,
   modernize-*,
   performance-*,
   misc-*,
   readability-*,
+  -clang-diagnostic-error,
 # google-*,
 # bugprone-*,
 # concurrency-*,
