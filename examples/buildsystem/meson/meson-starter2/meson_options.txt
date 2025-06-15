@@ -1,0 +1,3 @@
+option('enable-mold', type: 'boolean', value: false,
+  description: 'Use the mold linker for speed, so mold must be installed.'
+)
