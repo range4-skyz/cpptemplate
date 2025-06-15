@@ -40,7 +40,7 @@ configure_file(
 # - https://mesonbuild.com/Reference-manual_functions.html#dependency
 
 fmt           = dependency('fmt',           version: '>=11.2.0')
-nlohmann_json = dependency('nlohmann_json', version: '>=3.7.3',  required: false)
+nlohmann_json = dependency('nlohmann_json', version: '>=3.12.0',  required: false)
 # add more...
 
 ################################################################################
