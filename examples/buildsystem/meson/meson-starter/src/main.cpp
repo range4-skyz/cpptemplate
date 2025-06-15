@@ -2,6 +2,6 @@
 #include <format>
 #include <iostream>
 
-int main() {
+auto main() -> int {
     std::cout << std::format("Last git commit: {}", GIT_COMMIT_HASH);
 }
