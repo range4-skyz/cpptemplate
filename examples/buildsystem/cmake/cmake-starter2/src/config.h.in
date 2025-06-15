@@ -1,4 +1,4 @@
 #pragma once
 
-#define VERSION         "@VERSION@"
+#define PROJECT_VERSION "@PROJECT_VERSION@"
 #define GIT_COMMIT_HASH "@GIT_COMMIT_HASH@"

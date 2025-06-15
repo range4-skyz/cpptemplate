@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.16)
-project(cmake-starter LANGUAGES C CXX VERSION 1.0.0)
+cmake_minimum_required(VERSION 3.16...4.0)
+project(cmake-starter 
+        LANGUAGES C CXX
+        VERSION 1.0.0)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
@@ -25,9 +27,6 @@ endif()
 
 # Generate config.h
 # https://cmake.org/cmake/help/latest/command/configure_file.html#command:configure_file
-set(VERSION "${PROJECT_VERSION}")
-# add more...
-
 execute_process(
     COMMAND git rev-parse --short HEAD
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -35,8 +34,8 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.in
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h
+    ${PROJECT_SOURCE_DIR}/src/config.h.in
+    ${PROJECT_BINARY_DIR}/include/config.h
     @ONLY)
 
 ################################################################################

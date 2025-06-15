@@ -6,6 +6,9 @@ target_sources(${PROJECT_NAME}
     # add more...
 )
 
+# include config.h
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/include")
+
 # Generate pch files and be force included to source files
 target_precompile_headers(${PROJECT_NAME} PRIVATE
     $<$<COMPILE_LANGUAGE:C>:   ${CMAKE_CURRENT_SOURCE_DIR}/pch/c_pch.h>
