@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.16)
 project(cmake-starter LANGUAGES C CXX VERSION 1.0.0)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -22,6 +22,22 @@ if(CMAKE_VERSION VERSION_LESS "3.24")
 else()
     set(CMAKE_COLOR_DIAGNOSTICS ON)
 endif()
+
+# Generate config.h
+# https://cmake.org/cmake/help/latest/command/configure_file.html#command:configure_file
+set(VERSION "${PROJECT_VERSION}")
+# add more...
+
+execute_process(
+    COMMAND git rev-parse --short HEAD
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    OUTPUT_VARIABLE GIT_COMMIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.in
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/config.h
+    @ONLY)
 
 ################################################################################
 # Dependencies
