@@ -8,8 +8,8 @@ export CC_LD=lld
 export CXX=clang++
 export CXX_LD=lld
 
-# meson setup build -Denable-mold=true  # synatx -Doption=new_value
-# readelf -p .comment ./build/src/dbf   # Verify that you are using mold
+# meson setup build -Denable-mold=true          # synatx -Doption=new_value
+# readelf -p .comment ./build/src/meson_starter # Verify that you are using mold
 
 meson setup build
 
