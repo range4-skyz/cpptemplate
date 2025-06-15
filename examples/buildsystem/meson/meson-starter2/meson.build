@@ -25,12 +25,15 @@ config_h_dir  = meson.project_build_root()
 git_hash = run_command('git', 'rev-parse', '--short', 'HEAD', check: true).stdout().strip()
 
 config_h = configuration_data()
-config_h.set_quoted('VERSION', meson.project_version())
+config_h.set_quoted('PROJECT_VERSION', meson.project_version())
 config_h.set_quoted('GIT_COMMIT_HASH', git_hash)
 # add more ...
 
+# meson currently does not allow `configure_file`, `custom_target` and generator output file to subdirectories under builddir
+# https://github.com/mesonbuild/meson/issues/2320
 configure_file(
   output: 'config.h',
+  # output: join_paths(meson.project_build_root(), 'include', 'config.h') # I can't use it.
   configuration: config_h,
 )
 
