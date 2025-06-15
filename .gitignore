@@ -1,3 +1,4 @@
 .markdownlint.yaml
 build/
 bin/
+.cache/
