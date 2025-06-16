@@ -1,29 +1,30 @@
 # Project Tools
 
-## Compiler
+## Compilers
 
-- [gcc/g++](https://gcc.gnu.org/): the GNU Compiler.
-- [clang/clang++](https://clang.llvm.org/): the LLVM Compiler.
+- [gcc/g++](https://gcc.gnu.org/): The GNU Compiler.
+- [clang/clang++](https://clang.llvm.org/): The LLVM Compiler.
 
-## Linker
+## Linkers
 
-- [ld](https://sourceware.org/binutils/wiki/ld): the GNU Linker.
-- [lld](https://lld.llvm.org/): the LLVM Linker.
+- [ld](https://sourceware.org/binutils/wiki/ld): The GNU Linker.
+- [lld](https://lld.llvm.org/): The LLVM Linker.
+- [mold](https://github.com/rui314/mold): A Modern Linker.
 
-## Debugger
+## Debuggers
 
-- [gdb](https://www.sourceware.org/gdb/): the GNU Debugger.
-- [lldb](https://lldb.llvm.org/): the LLVM Debugger.
+- [gdb](https://www.sourceware.org/gdb/): The GNU Debugger.
+- [lldb](https://lldb.llvm.org/): The LLVM Debugger.
 
-## LSP
+## LSPs
 
-- [clangd](https://clangd.llvm.org/)
+- [clangd](https://clangd.llvm.org/): A Lanuage Server, which is based on `clang` C++ compiler.
 
-## Linter / Static Analysis Tool
+## Linters / Static Analysis Tools
 
-- [clang-tidy](https://clang.llvm.org/extra/clang-tidy/)
-- [cppcheck](https://cppcheck.sourceforge.io/)
+- [clang-tidy](https://clang.llvm.org/extra/clang-tidy/): A clang-based C++ "linter" tool.
+- [cppcheck](https://cppcheck.sourceforge.io/): A static analysis tool for C/C++ code.
 
-## Formatter
+## Formatters
 
-- [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
+- [clang-format](https://clang.llvm.org/docs/ClangFormat.html): can be used to format `C`/`C++`/`Java`/`JavaScript`/`JSON`/`Objective-C`/`Protobuf`/`C#` code.
