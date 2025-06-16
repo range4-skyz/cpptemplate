@@ -5,19 +5,19 @@
 Language: Cpp # If you uncomment this, it will only apply to Cpp
 # BasedOnStyle: LLVM # LLVM, Google, Chromium, Mozilla, Webkit, Microsoft, GNU
 Standard: Auto # c++03, c++11, c++14, c++17, c++20, Lastest, Auto
-Cpp11BracedListStyle: true
 
 DisableFormat: false
+Cpp11BracedListStyle: true
 TabWidth: 4
 LineEnding: LF
 UseTab: Never
+IndentAccessModifiers: false
 AccessModifierOffset: -4
 ColumnLimit: 120
-ReflowComments: true
 MaxEmptyLinesToKeep: 1
 MainIncludeChar: Quote
-ShortNamespaceLines: 1
-SeparateDefinitionBlocks: Always
+ShortNamespaceLines: 0
+SeparateDefinitionBlocks: Always # Leave, Always, Never
 RequiresClausePosition: OwnLine
 # RemoveSemicolon: false  # (!warning)
 RemoveParentheses: Leave
@@ -27,23 +27,41 @@ InsertTrailingCommas: Wrapped
 InsertBraces: true
 FixNamespaceComments: true
 EmptyLineBeforeAccessModifier: LogicalBlock
-EmptyLineAfterAccessModifier: Never
+EmptyLineAfterAccessModifier: Never # Never, Leave, Always
 KeepEmptyLines: 
   AtEndOfFile: false
   AtStartOfBlock: true
   AtStartOfFile: false
-BinPackParameters: false
-BinPackArguments: false
 # DeriveLineEnding: false # (!deprecated)
 # UseCRLF: false # (!deprecated)
+SpacesBeforeTrailingComments: 1
+ReflowComments: true
+SpacesInLineCommentPrefix:
+  Minimum: 1
+  Maximum: -1
+
+IncludeBlocks: Regroup # Preserve, Merge, Regroup
+IncludeCategories:
+  - Regex: 'std\.hpp>$'
+    Priority: 1
+  - Regex: ".*"
+    Priority: 2
 
 # [Sort]
-SortIncludes: CaseInsensitive
+SortIncludes: CaseSensitive # CaseSensitive, CaseInsensitive
 SortUsingDeclarations: LexicographicNumeric
+
+# [Macro]
+SkipMacroDefinitionBody: true
+IfMacros: []
+StatementMacros: []
+WhitespaceSensitiveMacros: []
 
 # [Alignment]
 PointerAlignment: Right
+SpaceAroundPointerQualifiers: After # Default, Before, After, Both 
 ReferenceAlignment: Pointer
+
 QualifierAlignment: Custom
 QualifierOrder:
   ["static", "inline", "friend", "constexpr", "type", "const", "volatile"]
@@ -54,6 +72,7 @@ AlignAfterOpenBracket: Align
 AlignArrayOfStructures: Right
 AlignEscapedNewlines: LeftWithLastLine
 DerivePointerAlignment: false
+
 AlignConsecutiveAssignments:
   Enabled: false
   AcrossEmptyLines: false
@@ -107,7 +126,6 @@ IndentCaseLabels: true
 IndentGotoLabels: true
 
 IndentPPDirectives: BeforeHash # None, AfterHash, BeforeHash
-IndentAccessModifiers: false
 IndentRequiresClause: true
 RequiresExpressionIndentation: OuterScope # Keyword, OuterScope
 
@@ -118,6 +136,8 @@ IndentWrappedFunctionNames: false
 BracedInitializerIndentWidth: 2
 
 # [Allow]
+BinPackParameters: false
+BinPackArguments: false
 AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: Empty
@@ -125,10 +145,10 @@ AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
 AllowShortLambdasOnASingleLine: Empty # All, Inline, None
 AllowShortFunctionsOnASingleLine: Empty
-AllowShortCaseLabelsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortCaseExpressionOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 AllowShortCompoundRequirementOnASingleLine: true
-AllowShortCaseExpressionOnASingleLine: false
 AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
 # AllowAllConstructorInitializersOnNextLine: true # (!deprecated)
 
@@ -136,10 +156,10 @@ AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
-SpaceAroundPointerQualifiers: After
 
 SpaceBeforeAssignmentOperators: true
-SpacesBeforeTrailingComments: 1
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeSquareBrackets: false
 
 SpaceBeforeJsonColon: false
 SpaceBeforeCaseColon: false
@@ -147,13 +167,11 @@ SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeRangeBasedForLoopColon: true
 
-SpaceBeforeCpp11BracedList: true
-SpaceBeforeSquareBrackets: false
-
 SpacesInAngles: Never
 SpacesInParens: Never
-SpacesInSquareBrackets: false
 SpaceInEmptyBlock: false
+SpacesInSquareBrackets: false
+SpacesInContainerLiterals: false
 
 # SpaceBeforeParens: ControlStatements # (!deprecated)
 # SpacesInCStyleCastParentheses: false # (!deprecated)
@@ -161,7 +179,6 @@ SpaceInEmptyBlock: false
 
 # [Break]
 AlwaysBreakBeforeMultilineStrings: false
-BreakTemplateDeclarations: Yes
 BreakBeforeConceptDeclarations: Always
 BreakBeforeBinaryOperators: All
 BreakBeforeTernaryOperators: true
@@ -171,6 +188,7 @@ BreakStringLiterals: true
 BreakInheritanceList: AfterComma
 BreakFunctionDefinitionParameters: false
 BreakConstructorInitializers: BeforeComma
+BreakTemplateDeclarations: Yes
 BreakArrays: false
 BreakAdjacentStringLiterals: true
 # AlwaysBreakTemplateDeclarations: true # (!rename)
@@ -207,10 +225,3 @@ IntegerLiteralSeparator:
   DecimalMinDigits: 7
   Hex: 4
   HexMinDigits: 9
-
-IncludeBlocks: Merge
-IncludeCategories:
-  - Regex: 'std\.hpp>$'
-    Priority: 1
-  - Regex: ".*"
-    Priority: 2
