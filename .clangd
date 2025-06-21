@@ -1,6 +1,8 @@
 # https://clangd.llvm.org/config
 # https://clangd.llvm.org/guides/include-cleaner
 # https://clang.llvm.org/extra/clang-tidy/checks/list.html
+# https://github.com/llvm/llvm-project/blob/main/clang/include/clang/Basic/DiagnosticParseKinds.td
+# https://github.com/llvm/llvm-project/blob/main/clang/include/clang/Basic/DiagnosticSemaKinds.td
 
 If:
   PathMatch: [
@@ -28,7 +30,12 @@ Completion:
   ArgumentLists: FullPlaceholders
   # HeaderInsertion: IWYU # IWYU(default), None
 Diagnostics:
-  ClangTidy:
+  Suppress: [
+    # clang internal diagnostic codes
+    # 'err_unknown_type',
+    # 'err_unknown_typename'
+  ]
+  ClangTidy: # start clangd with `--clang-tidy` option
     # Add:
     #   - cppcoreguidelines-*
     #   - modernize-*
@@ -69,4 +76,12 @@ CompileFlags:
      -arch=*,
      -rdc=*,
      -mno-*
+  ]
+InlayHints:
+  Enabled: false
+Diagnostics:
+  Suppress: [
+    # clang internal diagnostic codes
+    'ovl_no_viable_function_in_call',
+    'ref_bad_target'
   ]
