@@ -112,9 +112,9 @@ endif()
 ################################################################################
 # Subdirectories
 
-include_directories(include)
-
 add_subdirectory(src)
+# add_subdirectory(test)
+# add more...
 
 # Print status
 message(STATUS "")

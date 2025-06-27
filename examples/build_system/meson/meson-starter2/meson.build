@@ -125,6 +125,8 @@ endif
 # Subdirectories
 
 subdir('src')
+# subdir('test')
+# add more...
 
 # Print status
 message('\n'.join(['',

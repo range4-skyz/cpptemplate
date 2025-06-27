@@ -6,8 +6,9 @@ target_sources(${PROJECT_NAME}
     # add more...
 )
 
-# include config.h
-target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/include")
+# Add include directories
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}/include") # only including config.h
+target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_SOURCE_DIR}/include") # including all .h/.hpp files in include/ directory
 
 # Generate pch files and be force included to source files
 target_precompile_headers(${PROJECT_NAME} PRIVATE
